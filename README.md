@@ -2,10 +2,11 @@ Sorry for my bad english. The original message in Russian is presented in the se
 
 The project is licensed under both MIT License and Apache License. 
 
-This project is implemented image processing using wavelet transforms following:
- 1) Morlaix transformation;
- 2) transformation, vessels consistent with a model;
- 3) discrete transform Daubechies.
+This project is implemented image processing using wavelet transforms following: 
+1) Morlet (CWT2D); 
+2) transformation, vessels consistent with a model (CWT2D); 
+3) Daubechies (DWT2D).
+Created interface for easy addition of new discrete wavelet.
 
 Created interface for easy addition of new discrete wavelet.
 
