@@ -178,7 +178,7 @@ object Operation {
   
   // without try for x
   def distance(img: BI, x: Int, y: Int, theta: T): Int = {
-    def getCol(w: Int, h: Int): Int = 0xff&(img.getRGB(w, h)>>8)
+    def getCol(w: Int, h: Int): Int = 0xff & (img.getRGB(w, h)>>8)
     val height = img.getHeight; val width = img.getWidth;
     def isGood(w1: Int, h1: Int, w2: Int, h2: Int): Boolean = 
       abs(getCol(w1, h1) - getCol(w2, h2)) < 10
@@ -186,10 +186,10 @@ object Operation {
     val tg: T = tan(angle)
     def getDY(dx: Int): Int = (dx*tg).floor.toInt.max(-y).min(height-y-1)
     var dx = 0
-    while (x+dx<img.getWidth && isGood(x, y, x+dx,y+getDY(dx))) dx += 1
+    while (x+dx < width && isGood(x, y, x+dx, y+getDY(dx))) dx += 1
     val d1 = dx
     dx = 0
-    while (x+dx>=0 && isGood(x, y, x+dx, y+getDY(dx))) dx -= 1
+    while (x+dx >= 0 && isGood(x, y, x+dx, y+getDY(dx))) dx -= 1
     d1-dx
   }
 }

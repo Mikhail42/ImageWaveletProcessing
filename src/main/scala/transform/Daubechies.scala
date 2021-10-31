@@ -6,8 +6,8 @@ import scala.collection.mutable.ArraySeq
 
 class Daubechies(order: Int) extends WaveletTransformTrait {
   
-  val motherWavelength        = order << 1
-  val transformWavelength     = 2
+  val motherWavelength: Int    = order << 1
+  val transformWavelength: Int = 2
   override def getScaling: A  = Daubechies.Daub(order)//.par 
 }
 

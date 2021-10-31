@@ -20,7 +20,7 @@ abstract class ContinueWavelet {
   /** approximation integral of wavelet with step #h */
   protected def integralPsi(x1: Pair, x2: Pair): T = simpson(x1.toP, x2.toP)
   protected def simpson(x1: P, x2: P): T = 
-    Integral.simpson2((p: P) => psi(pToPair(p)), x1, x2, h)
+    Integral.simpson2d((p: P) => psi(pToPair(p)), x1, x2, h)
  
   protected def psiMatrix(mat: M, a: T): M = {
     val sx = toTrueSize(sx0, a); val sy = toTrueSize(sy0, a)

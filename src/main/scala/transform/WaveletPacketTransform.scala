@@ -28,7 +28,7 @@ class WaveletPacketTransform(wavelet: WaveletTransformTrait) {
     for (l <- 0 until level) {
       val h = arrTime.length >> l
       val iBuf = new A(h)
-      for(p <- 0 until (1 << l)) {
+      for (p <- 0 until (1 << l)) {
         copyArray(arrTime, p * h, iBuf, 0, h)
         val oBuf = wavelet.waveletForward(iBuf, h)
         copyArray(oBuf, 0, arrHilb, p * h, h)

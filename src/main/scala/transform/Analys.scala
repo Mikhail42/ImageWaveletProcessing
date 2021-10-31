@@ -23,7 +23,7 @@ object Analys {
   
     /** @see image.ImageWaveletInterface.black */
     def isBlack(x: Int, y: Int) = imgMat(y)(x) < black 
-    def inMatrix(x: Int, y: Int) = (x >= 0 && y >= 0 && x < n && y < m)
+    def inMatrix(x: Int, y: Int): Boolean = x >= 0 && y >= 0 && x < n && y < m
     def r(angle: T): Int = {
       var r = 0
       val cosA = cos(angle); val sinA =  sin(angle)

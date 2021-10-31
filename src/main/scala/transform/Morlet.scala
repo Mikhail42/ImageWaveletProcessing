@@ -29,7 +29,7 @@ object Morlet extends ContinueWavelet {
   def funToCP(k: (T, T)): T = sqr(fun1ToC_psi(new Pair(k._1, k._2)))
   
   val C_psi: T = sqr(2*Pi)*
-    tool.Integral.simpson2(funToCP, (-10, -10), (10, 10), 0.1)
-  val normCoef = 255/sqrt(C_psi)
+    tool.Integral.simpson2d(funToCP, (-10, -10), (10, 10), 0.1)
+  val normCoef: T = 255/sqrt(C_psi)
  // println(255/sqrt(C_psi))
 }

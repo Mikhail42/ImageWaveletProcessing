@@ -3,9 +3,9 @@ package tool
 import Types._
 
 object ArrayToolKit {
-  def copyColumn(mat: M, j: Int): A = mat.map {_(j)}
+  def copyColumn(mat: M, j: Int): A = mat.map(_(j))
   
-  def copyColumn(ar: A, mat: M, j: Int): Unit = 
+  def copyColumn(ar: A, mat: M, j: Int): Unit =
     for (i <- 0 until mat.length) mat(i)(j) = ar(i) 
   
   /** @see Array.copy */
