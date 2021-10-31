@@ -12,16 +12,16 @@ object Input {
   * @param name  name of file
   * @return image from file with name @name
   **/
-  def getImage(name: String) = ImageIO.read(new File(name))
+  def getImage(name: String): BI = ImageIO.read(new File(name))
   
  /**
   * @param img some image
   * @return all pixels as array from raster data
   */
   def getPixels(img: BufferedImage): Array[Byte] = 
-    img.getRaster.getDataBuffer( ).asInstanceOf[DataBufferByte].getData()
+    img.getRaster.getDataBuffer.asInstanceOf[DataBufferByte].getData()
   
-  def getColorsComponents(img: BI, colorID: Int) = {
+  def getColorsComponents(img: BI, colorID: Int): MInt = {
     val n = img.getWidth; val m = img.getHeight
     val res = createMInt(m, n)
     for (y <- 0 until m; x <- 0 until n)
@@ -41,7 +41,7 @@ object Input {
   */
   def getColorsComponentsWithoutUsingGetRGB(img: BufferedImage, colorID: Int): MInt = {
     val w = img.getWidth; val h = img.getHeight
-    val hasAlphaChannel = img.getAlphaRaster() != null
+    val hasAlphaChannel = img.getAlphaRaster != null
     def fun(x: Int): Int = 
       if (colorID == 0) x 
       else if (hasAlphaChannel) x<<2

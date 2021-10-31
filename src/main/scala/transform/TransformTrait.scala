@@ -4,7 +4,7 @@ import tool.ArrayToolKit._
 import tool.Types._
 
 /**
- *  @author  Mikhail   Ionkin     (ionkinmikhail@gmail.com)
+ *  @author  Mikhail Ionkin     (ionkinmikhail@gmail.com)
  *  
  *	I'm using a project JWave (by Christian Scheiblich (cscheiblich@gmail.com))
  *  @see	https://github.com/cscheiblich/JWave
@@ -47,19 +47,17 @@ trait TransformTrait {
     transformID match {
       case "str" =>
         for(str <- mat1) yield fun1D(str, lvlN)
-      case "col" =>{
+      case "col" =>
         val res = createM(mat1.length, mat1(0).length)
         for(j <- 0 until mat1(0).length) 
           copyColumn(fun1D(copyColumn(mat1, j), lvlM), res, j)
         res
-      }
-      case "mat" => {
+      case "mat" =>
         val mat2 = for(str <- mat1) yield fun1D(str, lvlN)
         val mat3 = createM(mat1.length, mat1(0).length)
         for(j <- 0 until mat1(0).length) 
           copyColumn(fun1D(copyColumn(mat2, j), lvlM), mat3, j)
         mat3
-      }
     }
   
   /** [1] 

@@ -32,29 +32,27 @@ object Operation {
       val newRGB = (gRes, gRes, gRes)
       val grayImg: BI = Operation.createImage(newRGB, BufferedImage.TYPE_3BYTE_BGR)
       Output.visible(grayImg, "outImg")
-      Output.saveImage(grayImg, "/home/misha/outGenerateImg.jpg", "jpg")
+      Output.saveImage(grayImg, "out/generateImg.jpg", "jpg")
     }
     picture
   }
-  def generateImageMat(amplit: T, freq: T, w: Int, h: Int): BI = {
+  def generateImageMat(amplitude: T, freq: T, w: Int, h: Int): BI = {
     val picture: M = tool.Types.createWhiteMat(w, h)
     for (y <- 0 until h; x <- 0 until w)
       for (a <- 30 to 190 by 30)
-      picture(y)(x) =  
-        if (abs(y - a - amplit*sin(x/freq)) < 6) 255-a
+      picture(y)(x) =
+        if (abs(y - a - amplitude * sin(x/freq)) < 6) 255-a
         else min(picture(y)(x), 255)
     val gRes: MInt = Operation.toColorMInt(picture)
     val newRGB = (gRes, gRes, gRes)
     Operation.createImage(newRGB, BufferedImage.TYPE_3BYTE_BGR)
   }
   
-  
   /** full copy of image */
   def deepCopy(bi: BI): BI = {
-    val cm: ColorModel = bi.getColorModel()
-    val isAlphaPremultiplied = cm.isAlphaPremultiplied()
+    val cm: ColorModel = bi.getColorModel
     val raster: WritableRaster = bi.copyData(null)
-    new BI(cm, raster, isAlphaPremultiplied, null)
+    new BI(cm, raster, cm.isAlphaPremultiplied, null)
   }
   
   def simpleRotate(img: BI, theta: T): BI = {

@@ -94,10 +94,10 @@ class ImageWaveletInterface(img: BI) {
     }
   
   def asVessel(a: T, showDirectly: Boolean): ColectionBI = 
-    wavelet(transform.AsVessel.transform, a, showDirectly, false)
+    wavelet(transform.AsVessel.transform, a, showDirectly, isWhiteBackground = false)
   def asVesselSpecTransform(a: T, showDirectly: Boolean): ColectionBI  = 
-    wavelet(transform.AsVessel.specTransform, a, showDirectly, true)
+    wavelet(transform.AsVessel.specTransform, a, showDirectly, isWhiteBackground = true)
   
   def morlet(a: T, showDirectly: Boolean): ColectionBI  = 
-    wavelet(transform.Morlet.transform, a, showDirectly, false)
+    wavelet(transform.Morlet.transform, a, showDirectly, isWhiteBackground = false)
 }

@@ -7,12 +7,13 @@ object Morlet extends ContinueWavelet {
     
   val k0 = new Pair(-1, 3)
   val eps: T = 8
-  val sqrtEps = sqrt(eps)
+  val sqrtEps: T = sqrt(eps)
   val epsPowMHalf: T = 1/sqrt(eps)
   
   /** Im-part of wavelet */
   override def psi(xs: Pair): T = 
     normCoef*sin(k0*xs) * exp(-0.5 * Pair(epsPowMHalf*xs.e1, xs.e2).sqrNorm)
+
   /**
    * A = (y/sqrt(eps) 0)
    * 		 (0           x)

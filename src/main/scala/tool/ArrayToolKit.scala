@@ -9,7 +9,7 @@ object ArrayToolKit {
     for (i <- 0 until mat.length) mat(i)(j) = ar(i) 
   
   /** @see Array.copy */
-  def copyArray[E](ar1: Array[E], pos1: Int, ar2: Array[E], pos2: Int, length: Int) {
+  def copyArray[E](ar1: Array[E], pos1: Int, ar2: Array[E], pos2: Int, length: Int): Unit = {
     val delta = pos1 - pos2
     for (i <- pos2 until pos2+length) ar2(i) = ar1(i+delta)
   }
