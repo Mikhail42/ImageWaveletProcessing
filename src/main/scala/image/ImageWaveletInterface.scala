@@ -23,7 +23,7 @@ class ImageWaveletInterface(img: BI) {
     val directly: MInt = Types.createMInt(m, n)
     
     // theta is image rotation angle
-    (0 until 180 by 30).par.foreach(theta => {
+    (0 until 180 by 30).foreach(theta => {
       val rotImg: BI = rotate(img, theta)
       val rotMat: MInt = Input.getColorsComponents(rotImg, 2)
       
