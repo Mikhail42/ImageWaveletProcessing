@@ -9,15 +9,10 @@ object ArrayToolKit {
     for (i <- 0 until mat.length) mat(i)(j) = ar(i) 
   
   /** @see Array.copy */
-  def copyArray[E](ar1: Array[E], pos1: Int, ar2: Array[E], pos2: Int, length: Int): Unit = {
-    val delta = pos1 - pos2
-    for (i <- pos2 until pos2+length) ar2(i) = ar1(i+delta)
-  }
-  
+  def copyArray[E](ar1: Array[E], pos1: Int, ar2: Array[E], pos2: Int, length: Int): Unit =
+    java.lang.System.arraycopy(ar1, pos1, ar2, pos2, length)
   
   /** @see Array.copy */
-  def copyArray(ar1: A, pos1: Int, ar2: A, pos2: Int, length: Int) {
-    val delta = pos1 - pos2
-    for (i <- pos2 until pos2+length) ar2(i) = ar1(i+delta)
-  }
+  def copyArray(ar1: A, pos1: Int, ar2: A, pos2: Int, length: Int): Unit =
+    java.lang.System.arraycopy(ar1, pos1, ar2, pos2, length)
 }
