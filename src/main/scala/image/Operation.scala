@@ -12,7 +12,7 @@ object Operation {
   /** forall cell in mat: cell => cell.toInt.max(0).min(255) */
   def toColorMInt(mat: M): MInt = mat.map{_.map{_.toInt.max(0).min(255)}}
   
-  /** generate simple image for wavelet test 
+  /** generate simple image for wavelet test
    * @param isVisible Do visible result image?
    * default value isVisible = false
    **/
@@ -23,9 +23,9 @@ object Operation {
     val size = 100
     val picture: M = tool.Types.createWhiteMat(size, size)
     for (y <- 0 until size; x <- 0 until size)
-      for (A <- 30 to 190 by 30) 
+      for (a <- 30 to 190 by 30)
       picture(y)(x) =  
-        if (abs(y - A - B*sin(x/C)) < 6) 255-A
+        if (abs(y - a - B*sin(x/C)) < 6) 255-a
         else  min(picture(y)(x), 255)
     if (isVisible){
       val gRes: MInt = Operation.toColorMInt(picture)
@@ -39,9 +39,9 @@ object Operation {
   def generateImageMat(amplit: T, freq: T, w: Int, h: Int): BI = {
     val picture: M = tool.Types.createWhiteMat(w, h)
     for (y <- 0 until h; x <- 0 until w)
-      for (A <- 30 to 190 by 30) 
+      for (a <- 30 to 190 by 30)
       picture(y)(x) =  
-        if (abs(y - A - amplit*sin(x/freq)) < 6) 255-A
+        if (abs(y - a - amplit*sin(x/freq)) < 6) 255-a
         else min(picture(y)(x), 255)
     val gRes: MInt = Operation.toColorMInt(picture)
     val newRGB = (gRes, gRes, gRes)
