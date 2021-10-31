@@ -5,7 +5,7 @@ import tool.Types._
 object Test {
   def test(waveName: String){
     // directory of images
-    val dir: String = "C:/docs/вейвлеты/01_dr/" //generate Image/" 
+    val dir: String = "src/main/images/" //generate Image/"
     // image name in directory, without format. 
     // if a full image name without format, it is don't work
     val imgName: String = "01_dr"//"outGenerateImg"
